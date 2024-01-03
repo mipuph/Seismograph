@@ -1,9 +1,9 @@
-#IOT Project - Mipu’s Seismograph
+# IOT Project - Mipu’s Seismograph
 
-##About Project
+## About Project
 This project is about an online earthquake alert system using a Raspberry Pi 4. The Raspberry Pi device is placed securely inside a building. When the building experiences shaking, the camera detects motion in the camera footage. It captures photos along with the time of the earthquake and sends this information to the user's LINE notify. Additionally, it emails a video of the shaking process to a designated email address. When motion is detected, a buzzer will sound, and LED lights will flash as a visual reminder.
 
-##Hardware Components
+## Hardware Components
 1.	Raspberry Pi Model B*1
 2.	Pi Camera*1
 3.	Breadboard*1
@@ -15,23 +15,25 @@ This project is about an online earthquake alert system using a Raspberry Pi 4. 
 9.	Thick cardboard
 10.	Dupont Lines Pi*6 (at least)
 
-##Circuit Diagram
+## Circuit Diagram
 
-###Step 1 - Enable camera support
+### Step 1 - Enable camera support
 Attach camera to RPi
-```sudo raspi-config```
+``` sudo raspi-config ```
 enabled camera
 Update your RPi with the following commands:
-```sudo apt-get update
+``` sudo apt-get update
 sudo apt-get dist-upgrade
-sudo apt-get install git```
+sudo apt-get install git
+```
 Clone the code from github and enable and run the install script with the following commands:
-```git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
-cd RPi_Cam_Web_Interface```
+``` git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+cd RPi_Cam_Web_Interface
+```
 Then carry on with the installation:
-```./install.sh```
+``` ./install.sh```
 
-###Step 2 - LINE notify
+### Step 2 - LINE notify
 
 
 ```設定line notify可以發送通知
@@ -56,12 +58,13 @@ if response.status_code == 200:
     print('通知已成功發送！')
 else:
     print('發送通知失敗...')
-    print('錯誤碼:', response.status_code)```
+    print('錯誤碼:', response.status_code)
+```
 
-##Demo Video
+## Demo Video
 https://youtu.be/BuJq_nN8MHI
 
-##Reference
+## Reference
 * GPIO：https://pinout.xyz/
 *	Web-controlled Raspberry Pi Camera：https://www.youtube.com/watch?v=DutKbZ-Lr8U
 *	RPi-Cam-Web-Interface：https://elinux.org/RPi-Cam-Web-Interface
