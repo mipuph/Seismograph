@@ -128,9 +128,11 @@ def send_email(sender_email, sender_password, receiver_email, subject, body, att
 
 ## Step 3 - Add a Buzzer and LED lights
 
- An LED requires 1 ground pin and 1 GPIO pin, with a current limiting resistor
+An LED requires 1 ground pin and 1 GPIO pin, with a current limiting resistor.
  
- A buzzer requires 1 ground pin and 1 GPIO pin
+A buzzer requires 1 ground pin and 1 GPIO pin.
+
+For GPIO pin location, please refer to https://pinout.xyz/
 
 * You can following table, showing which GPIO pin each component is connected to:
 
@@ -182,7 +184,6 @@ except KeyboardInterrupt:
 finally:
     # 清理GPIO狀態
     GPIO.cleanup()
-
 ```
 
 *can use `detect.py`code to execute it like demo video
