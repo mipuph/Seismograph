@@ -1,5 +1,5 @@
 # IOT Project - Mipu’s Seismograph
-
+<img src="https://github.com/mipuph/Seismograph/blob/main/img/kitty.jpg" width = "20%" /><img src="https://github.com/mipuph/Seismograph/blob/main/img/kitty.jpg" width = "20%" /><img src="https://github.com/mipuph/Seismograph/blob/main/img/kitty.jpg" width = "20%" />
 ## About Project
 This project is about an online earthquake alert system using a Raspberry Pi 4. The Raspberry Pi device is placed securely inside a building. When the building experiences shaking, the camera detects motion in the camera footage. It captures photos along with the time of the earthquake and sends this information to the user's LINE notify. Additionally, it emails a video of the shaking process to a designated email address. When motion is detected, a buzzer will sound, and LED lights will flash as a visual reminder.
 
@@ -15,7 +15,11 @@ This project is about an online earthquake alert system using a Raspberry Pi 4. 
 9.	Thick cardboard
 10.	Dupont Lines Pi*6 (at least)
 
+<img src="https://github.com/mipuph/Seismograph/blob/main/img/mipu.jpg" width = "50%" />
+
 ## Circuit Diagram
+
+<img src="https://github.com/mipuph/Seismograph/blob/main/img/cd.jpg" width = "60%" />
 
 ### Step 1 - Enable camera support
 Attach camera to RPi
