@@ -19,23 +19,35 @@ This project is about an online earthquake alert system using a Raspberry Pi 4. 
 
 ## Circuit Diagram
 
-<img src="https://github.com/mipuph/Seismograph/blob/main/img/cd.jpg" width = "60%" />
+<img src="https://github.com/mipuph/Seismograph/blob/main/img/cd.jpg" width = "70%" />
 
 ### Step 1 - Enable camera support
-Attach camera to RPi
-``` sudo raspi-config ```
+Attach camera to RPi and  enable camera support 
+```
+sudo raspi-config 
+```
+
 enabled camera
-Update your RPi with the following commands:
-``` sudo apt-get update
+Update your RPi with the following commands：
+```
+sudo apt-get update
 sudo apt-get dist-upgrade
 sudo apt-get install git
 ```
-Clone the code from github and enable and run the install script with the following commands:
-``` git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+Clone the code from github and enable and run the install script with the following commands：
+```
+git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
 cd RPi_Cam_Web_Interface
 ```
 Then carry on with the installation:
-``` ./install.sh```
+``` 
+./install.sh
+```
+<img src="https://github.com/mipuph/Seismograph/blob/main/img/pic1.jpg" width = "50%" />
+
+Then start camera interface. Open web browser and enter camera ip and cam subfolder：
+
+<img src="https://github.com/mipuph/Seismograph/blob/main/img/pic1.jpg" width = "50%" />
 
 ### Step 2 - LINE notify
 
@@ -64,6 +76,9 @@ else:
     print('發送通知失敗...')
     print('錯誤碼:', response.status_code)
 ```
+
+### Step 3 - Buzzer and LED alarm
+
 
 ## Demo Video
 https://youtu.be/BuJq_nN8MHI
