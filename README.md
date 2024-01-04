@@ -21,7 +21,7 @@ This project is about an online earthquake alert system using a Raspberry Pi 4. 
 
 <img src="https://github.com/mipuph/Seismograph/blob/main/img/cd.jpg" width = "70%" />
 
-### Step 1 - Enable camera support
+## Step 1 - Enable camera support
 Attach camera to RPi and enable camera support 
 ```
 sudo raspi-config 
@@ -54,7 +54,7 @@ e.g. http://raspberrypi_ip/html/index.php
 
 All camera function settings can be modified in the web interface
 
-### Step 2 - LINE notify and send_email
+## Step 2 - LINE notify and send_email
 
 <img src="https://github.com/mipuph/Seismograph/blob/main/img/line6.jpg" width = "60%" />
 
@@ -126,9 +126,66 @@ def send_email(sender_email, sender_password, receiver_email, subject, body, att
     print('Email sent successfully!')
 ```
 
-### Step 3 - Add a Buzzer and LED lights
+## Step 3 - Add a Buzzer and LED lights
 
+ An LED requires 1 ground pin and 1 GPIO pin, with a current limiting resistor
+ 
+ A buzzer requires 1 ground pin and 1 GPIO pin
 
+* You can following table, showing which GPIO pin each component is connected to:
+
+| Component  | GPIO pin |
+| ---------- |----------|
+| Buzzer     |    17    |
+| Red LED    |    25    |
+| Yellow LED |     8    |
+| Green LED  |     7    |
+
+* Test buzzer and LED
+
+```
+import RPi.GPIO as GPIO
+import time
+
+# 定義引腳
+buzzer_pin = 17
+red_led_pin = 25
+yellow_led_pin = 8
+green_led_pin = 7
+
+# 設置 GPIO 模式為 BCM 模式
+GPIO.setmode(GPIO.BCM)
+
+# 設置引腳為輸出
+GPIO.setup(buzzer_pin, GPIO.OUT)
+GPIO.setup(red_led_pin, GPIO.OUT)
+GPIO.setup(yellow_led_pin, GPIO.OUT)
+GPIO.setup(green_led_pin, GPIO.OUT)
+
+try:
+    # 啟動蜂鳴器LED亮5秒
+    GPIO.output(buzzer_pin, GPIO.HIGH)
+    GPIO.output(red_led_pin, GPIO.HIGH)
+    GPIO.output(yellow_led_pin, GPIO.HIGH)
+    GPIO.output(green_led_pin, GPIO.HIGH)
+    time.sleep(5)
+
+    # 關閉蜂鳴器，LED關閉
+    GPIO.output(buzzer_pin, GPIO.LOW)
+    GPIO.output(red_led_pin, GPIO.LOW)
+    GPIO.output(yellow_led_pin, GPIO.LOW)
+    GPIO.output(green_led_pin, GPIO.LOW)
+
+except KeyboardInterrupt:
+    pass
+
+finally:
+    # 清理GPIO狀態
+    GPIO.cleanup()
+
+```
+
+*can use `detect.py`code to execute it like demo video
 
 
 ## Demo Video
@@ -141,6 +198,7 @@ https://youtu.be/BuJq_nN8MHI
 *	LINE notify：https://engineering.linecorp.com/zh-hant/blog/using-line-notify-to-send-stickers-and-upload-images、https://atceiling.blogspot.com/2020/08/raspberry-pi-78bmp180-line-notify.html、https://notify-bot.line.me/en/
 *	Email：https://forums.raspberrypi.com/viewtopic.php?t=325558
 *	Buzzer：https://projects.raspberrypi.org/en/projects/physical-computing/9
+*	Motion sensor：https://randomnerdtutorials.com/raspberry-pi-motion-email-python/
 
 
 
